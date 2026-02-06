@@ -110,53 +110,9 @@ script
         ├── variable_5.sh
         ├── variable_6.sh
         ├── variable_7.sh
-        ├── variable_8.shscript
-    ├── Arguments
-    │   ├── argument_1.sh
-    │   ├── argument_2.sh
-    │   ├── argument_3.sh
-    │   └── logs.txt
-    ├── cartouche.sh
-    ├── Fonction
-    │   ├── execution
-    │   │   └── exec_1.sh
-    │   ├── fonction_1.sh
-    │   ├── fonction_2.sh
-    │   ├── fonction_3.sh
-    │   └── fonction_4.sh
-    ├── Opération_conditionnelle
-    │   ├── case
-    │   │   ├── case_1.sh
-    │   │   └── case_2.sh
-    │   ├── for
-    │   │   ├── for_1.sh
-    │   │   └── for_2.sh
-    │   ├── if
-    │   │   ├── if_1.sh
-    │   │   ├── if_2.sh
-    │   │   ├── if_3.sh
-    │   │   └── if_4.sh
-    │   └── while
-    │       ├── file.txt
-    │       ├── while_1.sh
-    │       ├── while_2.sh
-    │       └── while_3.sh
-    ├── Opération_math
-    │   ├── math_1.sh
-    │   ├── math_2.sh
-    │   ├── math_3.sh
-    │   ├── math_4.sh
-    │   └── test.txt
-    └── Variables
-        ├── list
-        ├── variable_1.sh
-        ├── variable_2.sh
-        ├── variable_3.sh
-        ├── variable_4.sh
-        ├── variable_5.sh
-        ├── variable_6.sh
-        ├── variable_7.sh
         ├── variable_8.sh
         └── variable_9.sh
-        └── variable_9.sh
 ```
+
+
+
