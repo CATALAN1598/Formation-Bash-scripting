@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Push on Centre de Formation</title>
+    <link>http://localhost:1313/how_to/push/</link>
+    <description>Recent content in Push on Centre de Formation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jun 2024 16:49:28 +0200</lastBuildDate><atom:link href="http://localhost:1313/how_to/push/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/how_to/push/git/</link>
+      <pubDate>Tue, 11 Jun 2024 16:51:14 +0200</pubDate>
+      
+      <guid>http://localhost:1313/how_to/push/git/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

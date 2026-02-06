@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="canonical" href="http://localhost:1313/formation/shell_scripting/op%C3%A9ration_conditionnelle/">
+
+    <title>
+        
+        Les opérations conditionnelles | Centre de Formation
+        
+    </title>
+
+    
+    <link href="http://localhost:1313css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/">
+                
+                Centre de Formation
+            </a>
+        </div>
+        
+    </div>
+    </nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/formation/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/"><h6>Formation</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/formation/shell_scripting/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/shell_scripting/"><h6>Shell Scripting</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+        <li data-nav-id="/formation/shell_scripting/shell_scripting/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/shell_scripting/" class="nav-link p-0">
+                    Un Shell et le Scripting
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/variables/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/variables/" class="nav-link p-0">
+                    Les variables
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/argument_script/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/argument_script/" class="nav-link p-0">
+                    Les arguments
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-item my-1 active">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-link p-0">
+                    Les opérations conditionnelles
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-link p-0">
+                    Les opérations mathématiques
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/fonction/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/fonction/" class="nav-link p-0">
+                    Les fonctions
+                  </a>
+                
+        </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#les-opérations-conditionnelles">Les opérations conditionnelles</a>
+      <ul>
+        <li><a href="#0--la-commande-test">0- La commande test</a></li>
+        <li><a href="#01--les-codes-retours-des-commandes">0.1- Les codes retours des commandes</a></li>
+        <li><a href="#02--les-standards-et-les-redirection">0.2- Les standards et les redirection</a></li>
+        <li><a href="#03--les-pipelines-de-redirection">0.3- Les pipelines de redirection</a></li>
+        <li><a href="#1---les-conditions-ifelifelse">1-  Les conditions (if/elif/else)</a></li>
+        <li><a href="#2--la-boucle-for">2- La boucle (for)</a></li>
+        <li><a href="#3--le-tant-que-while">3- Le tant que (while)</a></li>
+        <li><a href="#4--les-cas-case">4- Les cas (case)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Les opérations conditionnelles</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p class="lead">
+    Cette page présente les opérations conditionnelles en bash
+</p>
+
+<hr>
+<h2 id="les-opérations-conditionnelles">Les opérations conditionnelles</h2>
+<p>Afin de réalisé des opérations algorithmiques, il est possible d&rsquo;exécuté des opérations conditionnelles. Elles ont pour but d&rsquo;effectuer des vérifications afin de manipuler des commandes ou des variables.</p>
+<p>Il en existe plusieurs:</p>
+<h3 id="0--la-commande-test">0- La commande test</h3>
+<p>Avant de voir les différentes opérations conditionnelles il faut voir la commande <code>test</code>.</p>
+<p>La commande test est déployé par défaut sur <strong>DEBIAN</strong>: <code>man test</code></p>
+<p>Dans un script elle est représeté par <code>[ vérification ]</code></p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-info rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-info">
+            <h3>Commande TEST</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Les espaces sont obligatoire !
+        </div>
+    </div>
+</div>
+
+<p>Avant de voir le fonctionnement de la commande test, nous allons faire un focus sur:</p>
+<ul>
+<li>Les codes retours.</li>
+<li>Les redirections</li>
+<li>Les pipelines de redirection</li>
+</ul>
+<hr>
+<h3 id="01--les-codes-retours-des-commandes">0.1- Les codes retours des commandes</h3>
+<p>En bash lorsque vous exécutez une commande elle possède un code retour.</p>
+<ul>
+<li><code>0</code>: lorsque la commande c&rsquo;est exécuté correctement avec un résultat attendu</li>
+<li><code>1</code>: lorsque la commande c&rsquo;est exécuté avec un mavaise résultat</li>
+<li><code>autre</code> lorsque la commande obtient un résultat particulié</li>
+</ul>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Les codes retours négatifs</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p>Ce n&rsquo;est pas par ce que le code est autre que <code>0</code> que la commande c&rsquo;est mal exécuté !</p>
+<p>Une code 1 peut vouloir dire &ldquo;commande <code>correctement exécuté</code> mais <strong>résultat attendu incorrect</strong>&rdquo;</p>
+
+        </div>
+    </div>
+</div>
+
+<p>Vous trouverez souvent la correspondance des codes retours des commandes dans les manuels de commande: <strong>On oublit pas RTFM !!!</strong></p>
+<ul>
+<li><strong>Exemple:</strong> pour la commande <code>ls</code></li>
+</ul>
+<p>Extrait de <code>man ls</code></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_50de9cd98c">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_50de9cd98c">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   État de fin d<span style="color:#e6db74">&#39;exécution :
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       0      si OK,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       1      si problèmes mineurs (par exemple, impossible d&#39;</span>accéder à un sous-répertoire<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">2</span>      si erreur grave <span style="color:#f92672">(</span>par exemple, impossible d<span style="color:#960050;background-color:#1e0010">&#39;</span>accéder aux paramètres de la ligne de commande<span style="color:#f92672">)</span>.
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p><strong>Voir code retour de <code>grep</code></strong></p>
+<hr>
+<h3 id="02--les-standards-et-les-redirection">0.2- Les standards et les redirection</h3>
+<p>Avant de commencé il faut comprendre qu&rsquo;est ce qu&rsquo;une commande:</p>
+<p>Lorsqu&rsquo;une commande est exécuté elle attend quelque chose en entré, appeler <code>stdin</code> (standard input), et repond une sortie sous deux formes possible <code>stdout</code> (standard output) et <code>stderr</code> (standard error)</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5734928f30">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5734928f30">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                |-----------|
+</span></span><span style="display:flex;"><span>    --stdin-----|    CMD    |-----stdout---
+</span></span><span style="display:flex;"><span>                |-----------|
+</span></span><span style="display:flex;"><span>                      |
+</span></span><span style="display:flex;"><span>                      |
+</span></span><span style="display:flex;"><span>                    stderr
+</span></span><span style="display:flex;"><span>                      |
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Chaque standard possède un ID.</p>
+<ul>
+<li><code>stdin</code>   : 0</li>
+<li><code>stdout</code>  : 1</li>
+<li><code>sterr</code>   : 2</li>
+</ul>
+<p>Il est possible d&rsquo;intéragir avec ces différents standard.</p>
+<p>Par exemple:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_7e53a1b86b">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_7e53a1b86b">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;toto&#34;</span> &gt; toto.txt 
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>La commande <code>echo</code> à en stdin (0) <code>toto</code> et redirige la sortie standard (stdout id:1) dans <code>toto.txt</code></p>
+<p><strong>Il faut lire:</strong></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_df4a694263">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_df4a694263">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo &lt;<span style="color:#ae81ff">0</span> <span style="color:#e6db74">&#34;toto&#34;</span> 1&gt; toto.txt 
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>On envoie la valeur <code>toto</code> dans l&rsquo;entré standard de la commande <code>echo</code> puis on redirige la sortie standard de la commande <code>echo &quot;toto&quot;</code> dans le fichier <code>toto.txt</code></p>
+<p>Autre exemple:</p>
+<p>Le fichier toto n&rsquo;existe pas</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b493dbb62f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b493dbb62f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ls -l toto &gt; log.txt 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat log.txt
+</span></span><span style="display:flex;"><span>ls: impossible d<span style="color:#e6db74">&#39;accéder à &#39;</span>toto<span style="color:#960050;background-color:#1e0010">&#39;</span>: Aucun fichier ou dossier de ce type
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>La commande <code>ls -l</code> à en entré standard <code>toto</code> la sortie standard de la commande est envoyé dans <code>log.txt</code> en redirigeant <code>2</code>, la sortie
+d&rsquo;erreur, dans la sortie standard <code>2&gt;&amp;1</code>.</p>
+<p>Donc le contenut de <code>log.txt</code> contient les informations de la sortie d&rsquo;erreur envoyé dans la sortie standard qui est elle même redirigé vers le fichier <code>log.txt</code></p>
+<hr>
+<h3 id="03--les-pipelines-de-redirection">0.3- Les pipelines de redirection</h3>
+<p>Il faut également voir les pipelines de redirection de commande, nous allons en voir 3:</p>
+<ul>
+<li><code>cmd 1 | cmd 2 </code>  : La redirection de la sortie de commande 1 vers commande 2</li>
+<li><code>cmd 1 &amp;&amp; cmd 2</code>  : <strong>ET</strong> Si commande 1 correctement terminé (code d&rsquo;erreur) exécute commande 2</li>
+<li><code>cmd 1 || cmd 2</code>  : <strong>OU</strong> Si commande 1 terminé avec une erreur (code d&rsquo;erreur) exécute commande 2</li>
+</ul>
+<h5 id="les-pipes">Les pipes</h5>
+<p>Les pipes perment de redirigé la sortie standard d&rsquo;une commande vers une autre.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_ca867bac1f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_ca867bac1f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ls -l | grep <span style="color:#e6db74">&#39;.sh&#39;</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">12</span> mai   14:46 /if/if_1.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn  <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">12</span> mai   14:52 /if/if_2.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">260</span> <span style="color:#ae81ff">12</span> mai   15:01 /if/if_3.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                 |-----------|                            |-----------|
+</span></span><span style="display:flex;"><span>     --stdin-----|  ls -l    |-----stdout---&gt; --stdin-----|    grep   |-----stdout---&gt;
+</span></span><span style="display:flex;"><span>                 |-----------|                            |-----------|
+</span></span><span style="display:flex;"><span>                       |                                        |
+</span></span><span style="display:flex;"><span>                       |                                        |
+</span></span><span style="display:flex;"><span>                     stderr                                   stderr
+</span></span><span style="display:flex;"><span>                       |                                        |
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ls -l toto | grep <span style="color:#e6db74">&#39;.sh&#39;</span>
+</span></span><span style="display:flex;"><span>ls: impossible d<span style="color:#e6db74">&#39;accéder à &#39;</span>toto<span style="color:#960050;background-color:#1e0010">&#39;</span>: Aucun fichier ou dossier de ce type
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="alert alert-info" role="alert">
+    Le code d&rsquo;erreur est celui de la dernière commande exécuté ici <code>grep</code>.
+</div>
+
+<hr>
+<h5 id="le-et">Le ET</h5>
+<p>Le ET (<code>&amp;&amp;</code>) permet d&rsquo;exécuté une commande si une précédente termine correctement (voir les codes d&rsquo;erreur)</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c7ca63942f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c7ca63942f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l <span style="color:#f92672">&amp;&amp;</span> echo toto
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">12</span> mai   14:46 /if/if_1.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn  <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">12</span> mai   14:52 /if/if_2.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">260</span> <span style="color:#ae81ff">12</span> mai   15:01 /if/if_3.sh
+</span></span><span style="display:flex;"><span>toto
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l tata <span style="color:#f92672">&amp;&amp;</span> echo toto
+</span></span><span style="display:flex;"><span>ls: impossible d accéder à <span style="color:#e6db74">&#39;tata&#39;</span>: Aucun fichier ou dossier de ce type 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">12</span> mai   14:46 /if/if_1.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn  <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">12</span> mai   14:52 /if/if_2.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">260</span> <span style="color:#ae81ff">12</span> mai   15:01 /if/if_3.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l tata
+</span></span><span style="display:flex;"><span>ls: impossible d accéder à <span style="color:#e6db74">&#39;tata&#39;</span>: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<h5 id="le-ou">Le OU</h5>
+<p>Le OU (<code>||</code>) permet d&rsquo;exécuté une commande si une précédente echoue.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_25792d9a39">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_25792d9a39">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l <span style="color:#f92672">||</span> echo toto
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">12</span> mai   14:46 /if/if_1.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn  <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">12</span> mai   14:52 /if/if_2.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">260</span> <span style="color:#ae81ff">12</span> mai   15:01 /if/if_3.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l tata <span style="color:#f92672">||</span> echo toto
+</span></span><span style="display:flex;"><span>ls: impossible d accéder à <span style="color:#e6db74">&#39;tata&#39;</span>: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>toto
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">12</span> mai   14:46 /if/if_1.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn  <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">12</span> mai   14:52 /if/if_2.sh
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> aecn aecn <span style="color:#ae81ff">260</span> <span style="color:#ae81ff">12</span> mai   15:01 /if/if_3.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ls -l tata
+</span></span><span style="display:flex;"><span>ls: impossible d accéder à <span style="color:#e6db74">&#39;tata&#39;</span>: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<h4 id="retour-sur-la-commande-test">Retour sur la commande test</h4>
+<p>Vous devez vous prendre en compte les codes retours.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_27210f3413">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_27210f3413">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; test <span style="color:#ae81ff">1</span> -eq <span style="color:#ae81ff">1</span>     <span style="color:#75715e"># Test si 1 equivaut à 1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?          <span style="color:#75715e"># Affiche le code retour de commande précédante</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>                   <span style="color:#75715e"># 0: La commade c&#39;est bien exécuté et la commande obtient un resultat correcte</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; test <span style="color:#ae81ff">1</span> -eq <span style="color:#ae81ff">2</span>     <span style="color:#75715e"># Test si 1 equivaut à 2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; echo $?          <span style="color:#75715e"># Affiche le code retour de commande précédante</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>                   <span style="color:#75715e"># 1: la commande c&#39;est exécuté correctement mais le résultat est mauvais</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="alert alert-success" role="alert">
+    <strong>RTFM</strong>: Voir le manuel de la commade test pour voir les options et les arguments
+</div>
+
+
+<div class="alert alert-danger" role="alert">
+    <strong>Attention</strong>: Les nombres et les chaînes de caractères ne se traitent pas de la même manière
+</div>
+
+<h3 id="1---les-conditions-ifelifelse">1-  Les conditions (if/elif/else)</h3>
+<p>Les condition <code>if elif else</code> permettent de vérifier une/des condition(s) afin de réagir en fonction du résultat.</p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Syntaxe</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> test <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> commande
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_ec8cd508cc">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_ec8cd508cc">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Le premier argument est 1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Le premier argument n&#39;est pas 1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/if/if_1.sh</strong></p>
+<hr>
+<p>Il est possible d&rsquo;exécuter des commandes suite à un <code>test</code>.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_af5f58ad11">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_af5f58ad11">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        ls -l
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;RIEN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/if/if_2.sh</strong></p>
+<hr>
+<p>Il est possible d&rsquo;effectuer plusieurs test en même temps:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_0e8df4cb15">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_0e8df4cb15">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -gt <span style="color:#ae81ff">10</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -lt <span style="color:#ae81ff">15</span> <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Le nombre est compris entre 10 ( non inclus ) et 15 ( non inclus )&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -ge <span style="color:#ae81ff">20</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> -le <span style="color:#ae81ff">25</span> <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Le nombre est compris entre 20 (inclus) et 25 (inclus)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;RIEN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/if/if_3.sh</strong></p>
+<hr>
+
+<div class="alert alert-success" role="alert">
+    Vous effectuez plusieurs test en un donc la syntaxe sera <code>[[ vérification 1 (&amp;&amp; ||) vérification 2 ]]</code>
+</div>
+
+<hr>
+<p>Nous avons vu que nous pouvons utiliser la commande <code>test</code> pour effectuer des vérifications mais il est possible d&rsquo;utilisé n&rsquo;importe quelle commande à la place et de réagir en fonction de son code retour.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c0f1a88d17">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c0f1a88d17">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ls <span style="color:#ae81ff">\*</span>$1 &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;le code retour de la commande est:&#34;</span> $?
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;il existe des fichiers en </span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;le code retour de la commande est:&#34;</span> $?
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;il n&#39;existe pas de fichier en </span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/if/if_4.sh</strong></p>
+<hr>
+<h3 id="2--la-boucle-for">2- La boucle (for)</h3>
+<p>La boucle for permet d&rsquo;effectuer une commande ou une liste de commande jusqu&rsquo;à ce qu&rsquo;une liste de chose soit terminé.</p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Syntaxe</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> variable in list
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+        </div>
+    </div>
+</div>
+
+<p>La boucle simple permet créer une liste et d&rsquo;effectuer la boucle autant de fois que la liste à été défini.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_a1741afbd3">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_a1741afbd3">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;il reste&#34;</span> $i <span style="color:#e6db74">&#34;secondes avant la fin du monde&#34;</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/for/for_1.sh</strong></p>
+<hr>
+<p>Il est possible de créer une liste depuis une variable</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_2ab7867b58">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_2ab7867b58">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>list<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1:?Entrez un chiffre entre 1 et 9<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $list -gt <span style="color:#ae81ff">9</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;le chiffre est trop grand&#34;</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>eval <span style="color:#e6db74">&#34;echo {</span>$start<span style="color:#e6db74">..</span>$list<span style="color:#e6db74">}&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Le chiffre est:&#34;</span> $i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/for/for_2.sh</strong></p>
+<hr>
+<p>La force de la boucle permet de réduire la charge de travaille du script en exécutant x fois la même commande pour une liste connu.</p>
+
+<div class="alert alert-success" role="alert">
+    <p>La force de la boucle au delà du script en tant que commande dans un terminal est le meilleur ami de l&rsquo;utilisateur. On appel ça une One-line commande</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>ls<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span> sed -i <span style="color:#e6db74">&#34;s/ip1/ip2/g&#34;</span> ;<span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+</div>
+
+<h3 id="3--le-tant-que-while">3- Le tant que (while)</h3>
+<p>Le while est un opération conditionnelle qui permet d&rsquo;exécuté une commande tant qu&rsquo;une condition fixé n&rsquo;est pas atteinte.</p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Syntaxe</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> condition
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    commande <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_45209cf02a">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_45209cf02a">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> $id -lt <span style="color:#ae81ff">15</span> <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;touch fichier_&#34;</span>$id<span style="color:#e6db74">&#34;.txt&#34;</span>
+</span></span><span style="display:flex;"><span>        id<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span> id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>        echo $id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/while/while_1.sh</strong></p>
+<hr>
+<p>Utiliser l&rsquo;opération fonctionnelle while avec une commande fonctionne mais n&rsquo;est pas cohérente dans le sens ou une commande s&rsquo;exécute une fois et obtient un seul résultat (code d&rsquo;erreur) là ou while attent une opération jusqu&rsquo;à obtention d&rsquo;un résultat.</p>
+<p>Néanmoins des cas d&rsquo;utilisation avec une commande est très utile lorsque la commande à pour but de généré plusieurs occurences:</p>
+<p>Par exemple <code>read</code>.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_3ff05101af">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_3ff05101af">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>num<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> read -r line
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;ligne </span>$num<span style="color:#e6db74">: </span>$line<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        num<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span> num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span> &lt; /etc/passwd
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/while/while_2.sh</strong></p>
+<hr>
+
+<div class="alert alert-success" role="alert">
+    <p>Le while s&rsquo;exécute également en One-line pour gagné du temps.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; <span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> $i -lt <span style="color:#ae81ff">5</span> <span style="color:#f92672">]]</span> ; <span style="color:#66d9ef">do</span> echo <span style="color:#e6db74">&#34;quelque chose&#34;</span> ;<span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+</div>
+
+<hr>
+<p>La force du while est la possiblité de faire des boucles infini avec possibilité de l&rsquo;arrété avec une condition exécuté au sein de la boucle.</p>
+<p>On appel ça un <strong>break</strong></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b8e86c73eb">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b8e86c73eb">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>secret<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;secret&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> :
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        read -p <span style="color:#e6db74">&#34;Entrez votre le mot secret:&#34;</span> mdp
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $mdp <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;</span>$secret<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                break
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Ce n&#39;est pas le bon mot de passe&#34;</span>
+</span></span><span style="display:flex;"><span>        echo -e <span style="color:#e6db74">&#34;Indice: lisez bien la phrase\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Vous avez trouvez le mot </span>$secret<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/while/while_3.sh</strong></p>
+<hr>
+
+<div class="alert alert-info" role="alert">
+    Le while s&rsquo;exécute en boucle et ensuite dans la boucle on vérifie une condition, si elle est vrai alors on sort de la boucle sinon elle tourne en continue
+</div>
+
+<h3 id="4--les-cas-case">4- Les cas (case)</h3>
+<p>L&rsquo;opération conditionnelle <code>case</code> permet de vérifié le contenu d&rsquo;une condition et de réagir en fonction. Elle permet d&rsquo;évité d&rsquo;utilisé les autres opérations conditionnelle lorsque de nombreuses valeur peuvent être attendu en résultat.</p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Syntaxe</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">case</span> variable in
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cas 1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        commande <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    ;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cas 2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        commande <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    ;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cas 3<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        commande <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    ;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_bc4db9d90d">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_bc4db9d90d">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>input<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1:?Entrez un chiffre entre 1 et 5<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> $input in
+</span></span><span style="display:flex;"><span>        1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Le chiffre est 1&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Le chiffre est 2&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        3<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Le chiffre est 3&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        4<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Le chiffre est 4&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        5<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Le chiffre est 5&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        *<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Entrez une valeur entre 1 et 5&#34;</span>
+</span></span><span style="display:flex;"><span>                exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Le <code>case</code> vérifie des <strong>modèles</strong> (<strong>pattern</strong>) afin de réagir en fonction de la valeur de la variable.</p>
+<hr>
+<p><strong>Exemple: opération_conditionnelle/case/case_1.sh</strong></p>
+<hr>
+
+<div class="alert alert-danger" role="alert">
+    Le pattern <code>*)</code> inclus tous les autres types de pattern et permet de sécurisé le script lorsque le pattern ne correspond à aucun pattern prédéfini.
+</div>
+
+<p>Il est possible de remplacer la variable par une commande.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_7d665519a6">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_7d665519a6">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">$(</span>pwd | cut -d <span style="color:#e6db74">&#34;/&#34;</span> -f2<span style="color:#66d9ef">)</span> in
+</span></span><span style="display:flex;"><span>        home<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Vous êtes dans votre home&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        usr<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Vous êtes dans /usr&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        var<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Vous êtes dans le /var&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;Vous êtes à la racine&#34;</span>
+</span></span><span style="display:flex;"><span>                ;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: opération_conditionnelle/case/case_2.sh</strong></p>
+<hr>
+
+<div class="alert alert-danger" role="alert">
+    Un <strong>pattern</strong> ne peut pas être NULL
+</div>
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Les patterns variables</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p>Il est fortement déconseillé de mettre des variables dans les patterns des <code>case</code> car comme vu précédement <strong>une variable vit</strong> et il est très facile de perdre le contrôle du script en cas de mauvaise utilisation des variables.</p>
+<p>Pour rappel: <strong>Un script DOIT être fiable</strong>, il doit s&rsquo;exécuté correctement même dans le cas d&rsquo;une mauvaise utilisation.</p>
+
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+                    
+                    <div class="row"><div class="position-relative mx-auto col-lg-9">
+                          <div class="bg-primary overflow-hidden p-3 mt-5 shadow">
+
+    <h4 class="text-white text-center">Read more</h4>
+
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/formation/shell_scripting/argument_script/" title="Les arguments"><i class="fas fa-chevron-left p-1"></i>Les arguments</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/formation/shell_scripting/op%C3%A9ration_math/" title="Les opérations mathématiques">Les opérations mathématiques<i class="fas fa-chevron-right p-1"></i></a>
+    </div>
+</div>
+
+
+                        </div></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="http://localhost:1313lib/jquery.min.js"></script> 
+<script src="http://localhost:1313lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/plugins/auto-complete.js"></script>
+<link href="/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313";
+  
+</script>
+<script type="text/javascript" src="/plugins/search.js"></script>
+
+<script type="text/javascript" src="/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>

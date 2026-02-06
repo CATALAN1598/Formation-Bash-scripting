@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="canonical" href="http://localhost:1313/formation/shell_scripting/variables/">
+
+    <title>
+        
+        Les variables | Centre de Formation
+        
+    </title>
+
+    
+    <link href="http://localhost:1313css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/">
+                
+                Centre de Formation
+            </a>
+        </div>
+        
+    </div>
+    </nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/formation/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/"><h6>Formation</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/formation/shell_scripting/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/shell_scripting/"><h6>Shell Scripting</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+        <li data-nav-id="/formation/shell_scripting/shell_scripting/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/shell_scripting/" class="nav-link p-0">
+                    Un Shell et le Scripting
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/variables/" class="nav-item my-1 active">
+                
+                
+                  <a href="/formation/shell_scripting/variables/" class="nav-link p-0">
+                    Les variables
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/argument_script/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/argument_script/" class="nav-link p-0">
+                    Les arguments
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-link p-0">
+                    Les opérations conditionnelles
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-link p-0">
+                    Les opérations mathématiques
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/fonction/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/fonction/" class="nav-link p-0">
+                    Les fonctions
+                  </a>
+                
+        </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#les-variables">Les variables</a>
+      <ul>
+        <li><a href="#1--déclaration-dune-variable">1- Déclaration d&rsquo;une variable</a></li>
+        <li><a href="#2--appel-dune-variable">2- Appel d&rsquo;une variable</a></li>
+        <li><a href="#3--les-variable-inuput">3- Les variable inuput</a></li>
+        <li><a href="#4--les-variables-par-defauts">4- Les variables par defauts</a></li>
+        <li><a href="#5--les-variables-denvironnement">5- Les variables d&rsquo;environnement</a></li>
+        <li><a href="#6--les-variables-avec-le-retour-dune-commande">6- Les variables avec le retour d&rsquo;une commande</a></li>
+        <li><a href="#7--les-variable-local-et-exportable">7- Les variable local et exportable</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Les variables</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p class="lead">
+    Ce chapitre présente la manipulation des variables dans des scripts shell
+</p>
+
+<h2 id="les-variables">Les variables</h2>
+<p>Comme dans tous langage de programmation l’utilisation de variable permet de stocker des informations en mémoire afin de les appeler plus tard dans le programme.</p>
+<p>Une variable est créée dès qu’on lui associe <code>une valeur</code> sinon la variable est <strong>NULL</strong>.</p>
+<p>Elle peut être appelée tant qu&rsquo;elle existe et quand elle est nécessaire.</p>
+<p>N’oublions pas qu’un script est un enchaînement d’instructions donc on ne peut pas appeler une variable qui n’a pas encore été créée.</p>
+<p>Une variable peut prendre plusieurs valeurs au cour de l’exécution du script, on dis qu’<code>une variable vit</code>.</p>
+<ul>
+<li>
+<p>Une fois une variable créée, elle peut être <code>vidé</code> et être toujours active avec une valeur <strong>VIDE</strong>.</p>
+</li>
+<li>
+<p>Une fois une variable créée, elle peut être <code>supprimer</code>, elle ne sera donc plus active et aura pour valeur <strong>NULL</strong>.</p>
+</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+    <p><strong>VIDE</strong> <code>est</code> une valeur !!!</p>
+<p><strong>NULL</strong> <code>n'est pas</code> une valeur !!!</p>
+
+</div>
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Type des variables</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Pour ceux qui son familier avec un autre langage de programmation il n’est pas necéssaire de donner un type à une variable (int, float, bool, ect) néanmoins pour des besoins précis il est possible de le faire (très peu utilisé).
+        </div>
+    </div>
+</div>
+
+<hr>
+<h3 id="1--déclaration-dune-variable">1- Déclaration d&rsquo;une variable</h3>
+<p>Une variable se déclare avec une forme <code>clé/valeur</code>. Elle peut néanmoins posséder des paramètres supplémentaires.</p>
+
+<div class="alert alert-info" role="alert">
+    <p><em>Syntaxe d&rsquo;une déclaration:</em></p>
+<p><strong>nom_de_la_variable</strong>=<code>valeur_de_la_variable</code></p>
+
+</div>
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_2448b7abff">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_2448b7abff">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>toto 	<span style="color:#75715e"># la variable à pour valeur la chaîne de caractère « toto »</span>
+</span></span><span style="display:flex;"><span>echo $var 	<span style="color:#75715e"># Affiche la valeur de la variable $var : toto</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: variables/variable_1.sh</strong></p>
+<hr>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_a04ee0fe0e">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_a04ee0fe0e">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># !/bin/bash</span>
+</span></span><span style="display:flex;"><span>echo $var   <span style="color:#75715e"># Affiche la valeur de $var qui n&#39;a pas été initialisée</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>toto 	<span style="color:#75715e"># La variable prend pour valeur la chaîne de caractère « toto »</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $var	<span style="color:#75715e"># Affiche la valeur de la variable $var : toto</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>tata	<span style="color:#75715e"># Ecrase la variable $var avec la valeur la chaîne de caractère « tata »</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $var	<span style="color:#75715e"># Affiche la valeur de la variable $var : tata</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unset $var	<span style="color:#75715e"># Supprime la variable $var</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $var	<span style="color:#75715e"># Affiche le contenu de la variable $var</span>
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e"># la variable n&#39;existe plus ça valeur est NULL</span>
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e"># Une variable doit avoir une valeur pour exister (VIDE est une valeur)</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="alert alert-info" role="alert">
+    <strong>La variable vit !</strong>
+</div>
+
+<hr>
+<p><strong>Exemple: variables/variable_2.sh</strong></p>
+<hr>
+<p>Il est possible de déclarer une variable en « <code>readonly</code> » qui, comme son nom l’indique ne peut qu&rsquo;être lus et ne peut pas être modifiée.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c2e225f9dd">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c2e225f9dd">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>readonly var<span style="color:#f92672">=</span>toto       <span style="color:#75715e"># Déclaration d&#39;une variable en readonly avec pour valeur toto</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#readonly var           # déclaration d’une variable en readonly avec pour nom var</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># La variable à pour valeur : NULL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $var               <span style="color:#75715e"># Affiche le contenu de la variable $var</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># ERREUR : la variable n’existe pas car elle n’a pas encore eu de contenu</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>tata                <span style="color:#75715e"># ERREUR : la variable est en readonly</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: variables/variable_3.sh</strong></p>
+<hr>
+<h3 id="2--appel-dune-variable">2- Appel d&rsquo;une variable</h3>
+<p>Il est existe plusieurs moyens d&rsquo;appler une variable:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c33a59054e">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c33a59054e">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>AZERTY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;ma variable est:&#34;</span> $var                        <span style="color:#75715e"># Appel de la variable simple</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;ma variable est:&#34;</span> <span style="color:#e6db74">&#34;</span>$var<span style="color:#e6db74">&#34;</span>                      <span style="color:#75715e"># Appel de la variable entre guimet</span>
+</span></span><span style="display:flex;"><span>echo    
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;ma variable est:&#34;</span> <span style="color:#e6db74">${</span>var<span style="color:#e6db74">}</span>                      <span style="color:#75715e"># Appel de la variable en inclusion </span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo -e  <span style="color:#e6db74">&#34;\n#\n------------------------\n#\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>words<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toto tata titi&#34;</span>                              <span style="color:#75715e"># Déclaration d&#39;une variable contenant une liste de mots</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word in $words;                                 <span style="color:#75715e"># Boucle qui affiche chaque ocurence de la variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo $word                                  <span style="color:#75715e"># Affiche les occurences</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word in <span style="color:#e6db74">&#34;</span>$words<span style="color:#e6db74">&#34;</span>;                               <span style="color:#75715e"># Boucle qui affiche la variable entre guimet</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo $word                                  <span style="color:#75715e"># Affiche la variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e  <span style="color:#e6db74">&#34;\n#\n------------------------\n#\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>list<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\*.sh&#34;</span>                                        <span style="color:#75715e"># Varaible qui défini toute les fichiers en extension .sh</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>ls $list                                            <span style="color:#75715e"># Liste la variable (ls \*.sh)</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>ls <span style="color:#e6db74">&#34;</span>$list<span style="color:#e6db74">&#34;</span>                                          <span style="color:#75715e"># Liste le fichier &#39;\*.sh&#39;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>ls <span style="color:#e6db74">${</span>list<span style="color:#e6db74">}</span>                                          <span style="color:#75715e"># Liste les fichiers de manière inclusive</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="alert alert-info" role="alert">
+    Le &ldquo;quotting&rdquo; d&rsquo;une variable permet de sécurisé de la variable
+</div>
+
+<h4 id="les-différents-type-de-guimets">Les différents type de guimets</h4>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:center">Syntaxe</th>
+<th style="text-align:center">Variables</th>
+<th style="text-align:center">Commandes</th>
+<th style="text-align:center">Séquences d&rsquo;échappement</th>
+<th style="text-align:center">Imbrication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>' '</code></td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&quot; &quot;</code></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅ (partiel)</td>
+<td style="text-align:center">✅ (partiel)</td>
+<td style="text-align:center">✅ (<code>' '</code>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>` `</code></td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$()</code></td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$' '</code></td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<hr>
+<p><strong>Exemple: variables/variable_4.sh</strong></p>
+<hr>
+<h3 id="3--les-variable-inuput">3- Les variable inuput</h3>
+<p>Il est possible de demander à l&rsquo;exécuteur d&rsquo;entrer de la valeur avec son clavier pour chargé une variable</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_332a89972e">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_332a89972e">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#34;Entrez votre nom d&#39;utilisateur: &#34;</span> utilisateur  <span style="color:#75715e"># Lis l&#39;entré de l&#39;exécuteur pour son nom d&#39;utilisateur</span>
+</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#34;Entrez votre mot de passe: &#34;</span> -s password       <span style="color:#75715e"># Lis l&#39;entré de l&#39;exécuteur pour son mot de passe sans l&#39;affiché (un peu d&#39;intimité)</span>
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;\n&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;utilisateur: </span>$utilisateur<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;password: </span>$password<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hash_pass<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cksum <span style="color:#f92672">&lt;&lt;&lt;</span> $password | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f1<span style="color:#66d9ef">)</span>                               <span style="color:#75715e"># hash le mot de passe dans la variable $hash_pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $utilisateur <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;admin&#34;</span> <span style="color:#f92672">&amp;&amp;</span> $hash_pass <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;2092279974&#34;</span> <span style="color:#f92672">]]</span>                  <span style="color:#75715e"># Vérifie si l&#39;utilisateur et le mot de passe hashé sont les bons.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Vous avez trouver le message secret: le BASH c&#39;est PUISSANT&#34;</span>      <span style="color:#75715e"># Si oui affiche le message caché</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Fais un effort le bon MDP va pas s&#39;écrire tout seul !!!&#34;</span>          <span style="color:#75715e"># Si non motive le chercheur</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>BLINDAGE</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Vous permettez à l&rsquo;utilisateur d&rsquo;intéragir avec le script il faut penser à le blindé pour évité l&rsquo;injection de commande dans les variables associées au input de l&rsquo;exécuteur du script
+        </div>
+    </div>
+</div>
+
+<hr>
+<p><strong>Exemple: variables/variable_8.sh</strong></p>
+<hr>
+<h3 id="4--les-variables-par-defauts">4- Les variables par defauts</h3>
+<p>Plustôt nous avons vu qu&rsquo;une variable peut être :</p>
+<ul>
+<li><strong>Vide</strong></li>
+<li><strong>Null</strong></li>
+</ul>
+<p>Il est possible d&rsquo;associer une valeur à une variable si elle est <strong><code>vide</code></strong> ou <strong><code>null</code></strong>.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_faa8014e40">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_faa8014e40">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>toto
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;La variable vaut: &#34;</span> $var
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>unset var
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[unset] La variable var est désormais NULL&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var2<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var-default variable<span style="color:#e6db74">}</span>    <span style="color:#75715e"># Si variable null utilise la valeur defaut</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var2=\${var-default variable}] La variable vaut: &#34;</span> $var2 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span>tata
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var=tata] La variable var vaut </span>$var<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var2<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var-default variable<span style="color:#e6db74">}</span>    <span style="color:#75715e"># Si variable vide utilise la valeur defaut</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var2=\${var-default variable}] La variable vaut: &#34;</span> $var2 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var=&#34;&#34;] La variable var vaut VIDE &#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var2<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var-default variable<span style="color:#e6db74">}</span>    <span style="color:#75715e"># Si variable vide utilise la valeur defaut</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var2=\${var-default variable}] La variable vaut: &#34;</span> $var2 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e  <span style="color:#e6db74">&#34;\n#\n------------------------\n#\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>declare var3                    <span style="color:#75715e"># Déclare une variable NULL</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[declare var3]La variable n&#39;a pas de valeur elle est NULL&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var4<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var3<span style="color:#66d9ef">:-</span>default variable<span style="color:#e6db74">}</span>  <span style="color:#75715e"># Si variable est vide ou null var4 vaut default variable</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var4=\${var3:-default variable}] La variable vaut: &#34;</span> $var4 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var3<span style="color:#f92672">=</span>titi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var3=titi] La variable var vaut </span>$var3<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var4<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var3<span style="color:#66d9ef">:-</span>default variable<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var4=\${var3:-default variable}] La variable vaut: &#34;</span> $var4 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var3<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var3=&#34;&#34;] La variable var est désormais VIDE&#34;</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var4<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>var3<span style="color:#66d9ef">:-</span>default variable<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[var4=\${var3:-default variable}] La variable vaut: &#34;</span> $var4 <span style="color:#75715e"># Affiche var si pleine ou affiche defaut si var vide</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: variables/variable_5.sh</strong></p>
+<hr>
+<h3 id="5--les-variables-denvironnement">5- Les variables d&rsquo;environnement</h3>
+<p>Maintenant que nous avons vu comment manipuler les variables, nous allons voir les variables d&rsquo;environnement.</p>
+<p>Grace à la commande <code>env</code> vous pouvez voir les variables de votre environnement.</p>
+<p>Exemple de variable d&rsquo;environnement importante.
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_0ad39d57a0">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_0ad39d57a0">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HOSTNAME<span style="color:#f92672">=</span>nom_de_la_machine
+</span></span><span style="display:flex;"><span>SHELL<span style="color:#f92672">=</span>/bin/bash
+</span></span><span style="display:flex;"><span>PWD<span style="color:#f92672">=</span>Endroit_du_filesystem_ou_l_on_se_trouve
+</span></span><span style="display:flex;"><span>LOGNAME<span style="color:#f92672">=</span>Utilisateur_logué
+</span></span><span style="display:flex;"><span>HOME<span style="color:#f92672">=</span>/home/user
+</span></span><span style="display:flex;"><span>PATH<span style="color:#f92672">=</span>chemin_systeme_d_acces_aux_bianires
+</span></span><span style="display:flex;"><span>ECT...
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</p>
+<p>Ces variables sont celle de l&rsquo;environnement dans lequel le script est exécuté. Elles peuvent être appelées dans le script sans avoir à les définir dans le script.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_a5da2eb5e4">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_a5da2eb5e4">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;je suis connecté en tant que </span>$LOGNAME<span style="color:#e6db74"> et j&#39;habite à </span>$HOME<span style="color:#e6db74"> dans </span>$HOSTNAME<span style="color:#e6db74">, je vous parle depuis </span>$PWD<span style="color:#e6db74"> via un SHELL de type </span>$SHELL<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>je suis connecté en tant que aecn et j<span style="color:#960050;background-color:#1e0010">&#39;</span>habite à /home/aecn dans debian-work, je vous parle depuis /home/aecn/Documents/Formation/Le shell scripting/script/variables via un SHELL de type /bin/bash
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Portabilité du script</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p>Vous utilisez les variables de l&rsquo;environnement où (et avec qui) vous exécuté le script.</p>
+<p>Les variables d&rsquo;environnement peuvent être différentes d&rsquo;un environnement à un autre !</p>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+<p><strong>Exemple: variables/variable_6.sh</strong></p>
+<hr>
+<h3 id="6--les-variables-avec-le-retour-dune-commande">6- Les variables avec le retour d&rsquo;une commande</h3>
+<p>Il est également possible de chargé une variable avec le retour d&rsquo;une commande.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_69aad2536c">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_69aad2536c">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DATE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#34;Année: %Y, Mois: %m, Jour: %d&#34;</span><span style="color:#66d9ef">)</span>           <span style="color:#75715e"># La vairable DATE prend pour valeur le retour de la commande</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;La date est </span>$DATE<span style="color:#e6db74">&#34;</span>                                <span style="color:#75715e"># Affiche la valeur de $DATE le retour de la commande</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>list<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls -l<span style="color:#66d9ef">)</span>                                           <span style="color:#75715e"># La variable $list prend la valeur de ls avec son argument -l</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;le contenu du repertoire </span>$PWD<span style="color:#e6db74"> est\n</span>$list<span style="color:#e6db74">&#34;</span>      <span style="color:#75715e"># Affiche le contenu de la variable $list qui équivaut à un ls -l</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alias<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep ^alias $HOME/.bashrc<span style="color:#66d9ef">)</span>                      <span style="color:#75715e"># Le script est portable et peut afficher les alias de l&#39;utilisateur qui lance le script</span>
+</span></span><span style="display:flex;"><span>                                                        <span style="color:#75715e"># grace au variable d&#39;environnement</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;Mes alias sont:\n</span>$alias<span style="color:#e6db74">&#34;</span>                       <span style="color:#75715e"># Affiche les alias de l&#39;utilisateur</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: variables/variable_7.sh</strong></p>
+<hr>
+<h3 id="7--les-variable-local-et-exportable">7- Les variable local et exportable</h3>
+<p>Les variables peuvent être local se qui signifie qu&rsquo;elles ne peuvent pas être utilisé en dehors de l&rsquo;environnement choissi</p>
+<p>Les variavles peuvent être exportable pour pouvoir être utilisées ailleurs que là où elles ont été déclarées</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_60c4745a10">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_60c4745a10">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>list <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>                                                       <span style="color:#75715e"># Déclaration d&#39;une fonction liste qui attend un argument</span>
+</span></span><span style="display:flex;"><span>local dir                                                       <span style="color:#75715e"># Déclaration d&#39;une variable local dir</span>
+</span></span><span style="display:flex;"><span>export extention                                                <span style="color:#75715e"># Déclaration d&#39;une variable export extention</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>                                                        <span style="color:#75715e"># Dir prend pour valeur le premier argument de la fonction</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>la_liste<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls <span style="color:#e6db74">&#34;</span>$dir<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>                                           <span style="color:#75715e"># la variable prend la valeur d&#39;un ls de dir qui est le premier arguement de la fonction</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;La liste fichier du répertoire </span>$PWD<span style="color:#e6db74">\n</span>$la_liste<span style="color:#e6db74">&#34;</span>        <span style="color:#75715e"># Affiche les fichier présent dans la liste</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extention<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$la_liste<span style="color:#e6db74">&#34;</span> | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f2<span style="color:#66d9ef">)</span>                  <span style="color:#75715e"># Défini la variable extention à la liste de fichiers séparé par un &#34;.&#34; avec le deuxieme champ</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>list <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>                                                     <span style="color:#75715e"># Appel de la fonction avec comme paramètre la variable $PWD (ENV)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;le répertoire est: </span>$dir<span style="color:#e6db74">&#34;</span>                                  <span style="color:#75715e"># Affiche le contenu de la variable $dir qui est local à la foncion (existe uniquement dans la fonction)</span>
+</span></span><span style="display:flex;"><span>echo
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;les extentions sont:\n</span>$extention<span style="color:#e6db74">&#34;</span>                      <span style="color:#75715e"># Affiche le contenu de la variable extention qui est exporté en dehors de la fonction</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: variables/variable_9.sh</strong></p>
+<hr>
+
+
+    
+
+
+                    
+                    <div class="row"><div class="position-relative mx-auto col-lg-9">
+                          <div class="bg-primary overflow-hidden p-3 mt-5 shadow">
+
+    <h4 class="text-white text-center">Read more</h4>
+
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/formation/shell_scripting/shell_scripting/" title="Un Shell et le Scripting"><i class="fas fa-chevron-left p-1"></i>Un Shell et le Scripting</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/formation/shell_scripting/argument_script/" title="Les arguments">Les arguments<i class="fas fa-chevron-right p-1"></i></a>
+    </div>
+</div>
+
+
+                        </div></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="http://localhost:1313lib/jquery.min.js"></script> 
+<script src="http://localhost:1313lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/plugins/auto-complete.js"></script>
+<link href="/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313";
+  
+</script>
+<script type="text/javascript" src="/plugins/search.js"></script>
+
+<script type="text/javascript" src="/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>

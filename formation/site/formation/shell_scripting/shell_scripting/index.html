@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="canonical" href="http://localhost:1313/formation/shell_scripting/shell_scripting/">
+
+    <title>
+        
+        Un Shell et le Scripting | Centre de Formation
+        
+    </title>
+
+    
+    <link href="http://localhost:1313css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/">
+                
+                Centre de Formation
+            </a>
+        </div>
+        
+    </div>
+    </nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/formation/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/"><h6>Formation</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/formation/shell_scripting/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/shell_scripting/"><h6>Shell Scripting</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+        <li data-nav-id="/formation/shell_scripting/shell_scripting/" class="nav-item my-1 active">
+                
+                
+                  <a href="/formation/shell_scripting/shell_scripting/" class="nav-link p-0">
+                    Un Shell et le Scripting
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/variables/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/variables/" class="nav-link p-0">
+                    Les variables
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/argument_script/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/argument_script/" class="nav-link p-0">
+                    Les arguments
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-link p-0">
+                    Les opérations conditionnelles
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-link p-0">
+                    Les opérations mathématiques
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/fonction/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/fonction/" class="nav-link p-0">
+                    Les fonctions
+                  </a>
+                
+        </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#les-shell">Les Shell</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#le-bash">Le BASH</a>
+      <ul>
+        <li><a href="#système-dexploitation-debian">Système d’exploitation debian</a></li>
+      </ul>
+    </li>
+    <li><a href="#un-script">Un script</a></li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Un Shell et le Scripting</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p class="lead">
+    Ce chapitre présente la notion de <code>shell</code> et le terme <code>scripting</code>
+</p>
+
+<hr>
+<h2 id="les-shell">Les Shell</h2>
+<p><code>Qu’est ce qu’un shell ?</code></p>
+<h4 id="un-peu-dhistoire-et-de-notion-importante">Un peu d&rsquo;histoire et de notion importante:</h4>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Extrait wikipédia: Bourne shell</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p>Le <strong>Bourne shell</strong> ou <strong>bsh</strong> (ou encore simplement <strong>sh</strong> dans de nombreuses versions d&rsquo;<code>UNIX</code>) est un <code>shell Unix</code>. C&rsquo;est le shell par défaut de la version 7 d&rsquo;Unix ; dans les versions antérieures d&rsquo;UNIX, le nom sh désigne le Thompson shell, et dans certaines versions actuelles, il désigne le Korn shell.</p>
+<p>Le Bourne shell a été programmé par Stephen Bourne (d&rsquo;où le nom) d&rsquo;AT&amp;T Bell Laboratories et a fait son apparition pour la première fois en 1977 sur la version 7 d&rsquo;Unix qui était distribuée aux universités et académies. Il est resté depuis cette époque le shell par défaut pour les comptes Unix. Le fichier exécutable du Bourne shell ou de tout autre shell compatible se trouve à l&rsquo;emplacement <strong>/bin/sh</strong> sur la plupart des systèmes Unix et est toujours le shell par défaut du compte root sur de nombreuses implémentations d&rsquo;Unix.</p>
+<p>Avec son système de tubes connectant la sortie d&rsquo;une commande à l&rsquo;entrée d&rsquo;une autre, il permet d&rsquo;écrire des scripts complexes à partir de commandes simples. Une version améliorée de ce shell est le <code>Bourne-Again shell</code>.</p>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Extrait wikipédia: UNIX</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p><strong>Unix</strong>, officiellement <strong>UNIX</strong>, est une famille de systèmes d&rsquo;exploitation ouverts, multitâche et multi-utilisateur. Unix est dérivé de l&rsquo;Unix d&rsquo;origine créé par AT&amp;T, le développement de ce dernier ayant commencé dans les années 1970 au centre de recherche de Bell Labs mené par Kenneth Thompson. Il est composé d&rsquo;un noyau (qui assure la gestion de la mémoire, des entrées et sorties de bas niveau, l&rsquo;enchaînement des tâches), d&rsquo;un interpréteur ou superviseur (le shell), et de nombreux petits utilitaires, accomplissant chacun une action spécifique, commutables entre eux (mécanisme de « redirection ») et appelés depuis la ligne de commande.</p>
+<ul>
+<li>
+<p>Les systèmes Unix sont des systèmes <code>ouverts</code>, <code>multitâches</code> et <code>multi-utilisateurs</code>.</p>
+</li>
+<li>
+<p>Les systèmes Unix ont en commun plusieurs concepts développés dès les premières versions d&rsquo;Unix aux laboratoires Bell.</p>
+</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>Extrait wikipédia: POSIX</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p><strong>POSIX</strong> ((<strong>P</strong>ortable <strong>O</strong>perating <strong>S</strong>ystem <strong>I</strong>nterface) et le <strong>X</strong> exprime l&rsquo;héritage <code>UNIX</code>) est une famille de normes techniques définie depuis 1988 par l&rsquo;Institute of Electrical and Electronics Engineers (<strong>IEEE</strong>), et formellement désignée par IEEE 1003. Ces normes ont émergé d&rsquo;un projet de standardisation des interfaces de programmation des logiciels destinés à fonctionner sur les variantes du système d&rsquo;exploitation UNIX.</p>
+<p>Le terme POSIX a été suggéré par Richard Stallman, qui faisait partie du comité qui écrivit la première version de la norme. L&rsquo;IEEE choisit de le retenir car il était facilement mémorisable[1],[2].</p>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+<p><strong>Un shell est un interpréteur de commande d’un système UNIX. C’est un binaire qui ne fait pas partie du noyau, c’est une interface entre l’utilisateur et le système.</strong></p>
+<hr>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-secondary rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-secondary">
+            <h3>IA réponse: Le bsh fait-il parti du noyau de debian ?</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <p>Non, le shell bsh (Bourne shell, souvent désigné par sh) ne fait pas partie du noyau (kernel) des systèmes UNIX/Linux. Voici les clarifications :</p>
+<ol>
+<li><strong>Rôle du noyau (kernel)</strong></li>
+</ol>
+<p>Le noyau est le cœur du système d&rsquo;exploitation. Il gère :</p>
+<pre><code> Les processus et la mémoire,
+
+ Les pilotes matériels (disques, réseau, etc.),
+
+ Les appels système (syscalls).
+</code></pre>
+<p>Le shell, quant à lui, est un programme utilisateur qui permet d&rsquo;interagir avec le noyau via des commandes.</p>
+<ol start="2">
+<li>
+<p><strong>Le shell est un outil en espace utilisateur</strong></p>
+<p>Le shell (comme sh, bash, csh, etc.) est un exécutable situé dans /bin ou /usr/bin.</p>
+<p>Il est lancé après le démarrage du système, une fois le noyau initialisé.</p>
+<p><strong>Exemple</strong> : /bin/sh (Bourne shell) ou /bin/bash (Bourne-Again shell).</p>
+</li>
+<li>
+<p><strong>Interaction shell/noyau</strong></p>
+</li>
+</ol>
+<p>Le shell utilise des appels système (syscalls) pour communiquer avec le noyau. Par exemple :</p>
+<pre><code>Quand vous exécutez ls, le shell appelle fork() pour créer un nouveau processus, puis exec() pour lancer /bin/ls.
+
+Le noyau gère ensuite l'exécution de ls et renvoie le résultat au shell.
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Cas spécifique de bsh</strong></p>
+<p>bsh est une ancienne abréviation pour le Bourne shell (sh), le shell historique d&rsquo;UNIX.</p>
+<p>Il n&rsquo;est pas intégré au noyau, mais est un programme standard fourni avec le système UNIX.</p>
+</li>
+<li>
+<p><strong>Exemple concret sous Linux</strong></p>
+<p>Le noyau Linux est typiquement situé dans /boot/vmlinuz-&hellip;.</p>
+<p>Le shell bash est installé séparément dans /bin/bash.</p>
+<p>Si vous supprimez /bin/bash, le noyau continue de fonctionner, mais vous perdez l&rsquo;accès au shell.</p>
+</li>
+</ol>
+
+        </div>
+    </div>
+</div>
+
+<p><strong>Il en existe plusieurs :</strong></p>
+<ul>
+<li>Bsh (sh)</li>
+<li>Bash</li>
+<li>Ksh</li>
+<li>Csh</li>
+</ul>
+<hr>
+<h2 id="le-bash">Le BASH</h2>
+<p>Ici nous allons nous concentrer sur l&rsquo;interpréteur BASH (<code>Bourne-Again Shell</code> ) qui est le plus rependu sur les systèmes Linux.</p>
+<p>Le shell est appelé langage de programmation, mais n’est qu’une succession d’instruction, qui grâce à des commandes simples permettent:</p>
+<ul>
+<li>L’utilisation de variables</li>
+<li>D’exécution conditionnelle</li>
+<li>Création de fonctionnalité pour des répétitions de commandes</li>
+</ul>
+<p>Le scripting shell, peu import l’interpréteur choissi, n’a pas besion d’être compilé.
+Il est préférable de parler de langage de scripting plutôt que langage de programmation.</p>
+<hr>
+<h3 id="système-dexploitation-debian">Système d’exploitation debian</h3>
+<p>Nous allons travailler sur le système d’exploitation <code>DEBIAN</code>  avec l’interpréteur de commande <code>BASH</code>.</p>
+<p><code>Debian</code> est un système d&rsquo;exploitation <strong>GNU/Linux</strong> qui est un système <code>UNIX</code> qui répond donc aux normes <code>POSIX</code>.</p>
+<p><code>BASH</code> est le shell de base de <strong>Debian</strong>, lors d&rsquo;une installation normal. C&rsquo;est une version améliorée de <strong>Bsh</strong> (autrement dis <strong>sh</strong>) le shell par default des systèmes <code>UNIX</code>.</p>
+<hr>
+<h2 id="un-script">Un script</h2>
+<p><code>Qu’est ce qu’un script ?</code></p>
+<p>Comme expliqué précédemment un script est une succession de commande agrémenté de variable, d’exécution conditionnelle ainsi que de fonction.</p>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-info rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-info">
+            <h3>Un script doit être:</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <ul>
+<li>
+<p><strong>Fiable</strong>:</p>
+<pre><code>  - Son fonctionnement est irréprochable même en cas de mauvaise utilisation
+</code></pre>
+</li>
+<li>
+<p><strong>Commenté</strong>:</p>
+<pre><code>  - Son code est annoté pour en faciliter la relecture et les futures évolutions 
+</code></pre>
+</li>
+<li>
+<p><strong>Lisible</strong>:</p>
+<pre><code>  - Le code est indenté à bon escient, les commandes sont aérées, …
+</code></pre>
+</li>
+<li>
+<p><strong>Portable</strong>:</p>
+<pre><code>  - Le code fonctionne sur tout système Linux, gestion des dépendances, gestion des droits, etc.
+</code></pre>
+</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-info rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-info">
+            <h3>Un script doit être correctement nommé: </h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            <ul>
+<li>Pas de <code>nom de commande existante</code></li>
+<li>Caractères <code>alpha-numériques</code> uniquement</li>
+<li>extension en <code>.sh</code> (<strong>exeption</strong> : si le script doit devenir une commande)</li>
+<li>Doit posséder <code>un cartouche</code> (nom de l’auteur, date d’ecriture, commentaire d’explication, version)</li>
+<li>Doit posséder <code>un shebang</code>: <strong>#!/bin/bash</strong> (doit être absolument la première ligne du script)</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+<p>Script d&rsquo;exemple: <strong>cartouche<code>.sh</code></strong></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5683e86934">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5683e86934">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#auteur: Emile Zola</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Date: 01/01/1900</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#version: V0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Commentaire:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Ce script montre l&#39;exemple d&#39;un cartouche il n&#39;execute aucune commande</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+    
+
+
+                    
+                    <div class="row"><div class="position-relative mx-auto col-lg-9">
+                          <div class="bg-primary overflow-hidden p-3 mt-5 shadow">
+
+    <h4 class="text-white text-center">Read more</h4>
+
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/formation/shell_scripting/" title="Shell Scripting"><i class="fas fa-chevron-left p-1"></i>Shell Scripting</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/formation/shell_scripting/variables/" title="Les variables">Les variables<i class="fas fa-chevron-right p-1"></i></a>
+    </div>
+</div>
+
+
+                        </div></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="http://localhost:1313lib/jquery.min.js"></script> 
+<script src="http://localhost:1313lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/plugins/auto-complete.js"></script>
+<link href="/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313";
+  
+</script>
+<script type="text/javascript" src="/plugins/search.js"></script>
+
+<script type="text/javascript" src="/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>

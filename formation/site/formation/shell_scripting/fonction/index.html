@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="canonical" href="http://localhost:1313/formation/shell_scripting/fonction/">
+
+    <title>
+        
+        Les fonctions | Centre de Formation
+        
+    </title>
+
+    
+    <link href="http://localhost:1313css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/">
+                
+                Centre de Formation
+            </a>
+        </div>
+        
+    </div>
+    </nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/formation/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/"><h6>Formation</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/formation/shell_scripting/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/formation/shell_scripting/"><h6>Shell Scripting</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+        <li data-nav-id="/formation/shell_scripting/shell_scripting/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/shell_scripting/" class="nav-link p-0">
+                    Un Shell et le Scripting
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/variables/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/variables/" class="nav-link p-0">
+                    Les variables
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/argument_script/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/argument_script/" class="nav-link p-0">
+                    Les arguments
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_conditionnelle/" class="nav-link p-0">
+                    Les opérations conditionnelles
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-item my-1">
+                
+                
+                  <a href="/formation/shell_scripting/op%C3%A9ration_math/" class="nav-link p-0">
+                    Les opérations mathématiques
+                  </a>
+                
+        </li>
+        <li data-nav-id="/formation/shell_scripting/fonction/" class="nav-item my-1 active">
+                
+                
+                  <a href="/formation/shell_scripting/fonction/" class="nav-link p-0">
+                    Les fonctions
+                  </a>
+                
+        </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#les-fonctions">Les fonctions</a>
+      <ul>
+        <li><a href="#0--syntaxe">0- Syntaxe</a></li>
+        <li><a href="#1--les-fonctions">1- Les fonctions</a></li>
+        <li><a href="#2--break--continue">2- Break / Continue</a></li>
+        <li><a href="#3--exit--return">3- Exit / Return</a></li>
+        <li><a href="#32--orchestrateur-de-processus-et-histoire">3.2- Orchestrateur de processus et histoire</a></li>
+        <li><a href="#3--exit--return-1">3- Exit / Return</a></li>
+        <li><a href="#les-codes-sans-erreurs">Les codes sans erreurs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Les fonctions</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p class="lead">
+    Cette page présente l&rsquo;utilisation et la manipulation des fonctions
+</p>
+
+<h2 id="les-fonctions">Les fonctions</h2>
+<p>Les fonctions permettent l&rsquo;optimisation du script en automatisant une/des tâche(s) répétitive(s). Elles permettent une meilleur structuration du code.</p>
+<h3 id="0--syntaxe">0- Syntaxe</h3>
+<h3 id="1--les-fonctions">1- Les fonctions</h3>
+<p>Une fonction est un enchaînement de commande que l&rsquo;on peut appeler lorsque necéssaire. Elle permet d&rsquo;être appelé plusieurs fois sans avoir à réécrire une séquence de commande exécuté plusieurs fois.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_cee3275465">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_cee3275465">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ma_fonction<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Appel de la fonction: Le chiffre est supérieur ou égal à 5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#34;Entrez un chiffre entre 1 et 9: &#34;</span> chiffre
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Vérification améliorée de l&#39;input</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! <span style="color:#e6db74">&#34;</span>$chiffre<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span>~ ^<span style="color:#f92672">[</span>1-9<span style="color:#f92672">]</span>$ <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Erreur: Entrez uniquement un chiffre entre 1 et 9&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">((</span> chiffre &lt; <span style="color:#ae81ff">5</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Le chiffre choisi (</span>$chiffre<span style="color:#e6db74">) est inférieur à 5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">((</span> chiffre &gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    ma_fonction
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: fonction/fonction_1.sh</strong></p>
+<hr>
+<p>On peut considérer une fonction comme un script au sein d&rsquo;un script. Les fonctions répondent aux mêmes critères qu&rsquo;un script.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_2de8322cfc">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_2de8322cfc">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Variable</span>
+</span></span><span style="display:flex;"><span>nom<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1:?Entrez votre nom<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>prenom<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>2:?Entrez votre prénom<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>age<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>3:?Entrez votre age<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>date<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Fonction</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>check_age <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export validation<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span> $1 &gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span> <span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                validation<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>new_name <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export init_name<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>local ask1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ajsngieocnzore&#34;</span>
+</span></span><span style="display:flex;"><span>local ask2<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ndejzncjnisjei&#34;</span>
+</span></span><span style="display:flex;"><span>export new_name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$ask1<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$ask2<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        read -p <span style="color:#e6db74">&#34;Entrez le nouveau nom souhaité: &#34;</span> ask1
+</span></span><span style="display:flex;"><span>        read -p <span style="color:#e6db74">&#34;Comfirmez le nouveau nom souhaité: &#34;</span> ask2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>new_name<span style="color:#f92672">=</span>$ask2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;[</span>$date<span style="color:#e6db74">] Votre nom est </span>$nom<span style="color:#e6db74">, votre prénom est </span>$prenom<span style="color:#e6db74"> et vous avez </span>$age<span style="color:#e6db74"> ans.\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> $change !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Y&#34;</span> <span style="color:#f92672">&amp;&amp;</span> $change !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;N&#34;</span> <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        read -p <span style="color:#e6db74">&#34;Voulez vous changez de nom: Y/N: &#34;</span> change
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> $change in
+</span></span><span style="display:flex;"><span>                Y<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;Pour changer de nom vous devez être majeur&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        check_age $age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $validation <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                                echo <span style="color:#e6db74">&#34;Vous êtes majeur&#34;</span>
+</span></span><span style="display:flex;"><span>                                echo -e <span style="color:#e6db74">&#34;\nLANCEMENT DE LA PROCEDURE DE CHANGEMENT DE NOM\n&#34;</span>
+</span></span><span style="display:flex;"><span>                                new_name $nom
+</span></span><span style="display:flex;"><span>                                nom<span style="color:#f92672">=</span>$new_name
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> -z $nom <span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                                        echo <span style="color:#e6db74">&#34;[ERREUR]: Votre nouveau nom n&#39;est pas détecté&#34;</span>
+</span></span><span style="display:flex;"><span>                                        echo -e <span style="color:#e6db74">&#34;\nRE-LANCEMENT DE LA PROCEDURE DE CHANGEMENT DE NOM\n&#34;</span>
+</span></span><span style="display:flex;"><span>                                        new_name $init_name
+</span></span><span style="display:flex;"><span>                                        nom<span style="color:#f92672">=</span>$new_name
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>                                echo <span style="color:#e6db74">&#34;Votre nouveau nom à été pris en compte !&#34;</span>
+</span></span><span style="display:flex;"><span>                                echo -e <span style="color:#e6db74">&#34;[</span>$date<span style="color:#e6db74">] Votre nouveau nom est </span>$nom<span style="color:#e6db74">, votre prénom est </span>$prenom<span style="color:#e6db74"> et vous avez </span>$age<span style="color:#e6db74"> ans.&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                                echo <span style="color:#e6db74">&#34;Vous n&#39;êtes pas majeur vous avez </span>$age<span style="color:#e6db74"> ans&#34;</span>
+</span></span><span style="display:flex;"><span>                                exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>                        ;;
+</span></span><span style="display:flex;"><span>                N<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;Vous avez choissi de garder votre nom&#34;</span>
+</span></span><span style="display:flex;"><span>                        echo -e <span style="color:#e6db74">&#34;[</span>$date<span style="color:#e6db74">] Votre nom est </span>$nom<span style="color:#e6db74">, votre prénom est </span>$prenom<span style="color:#e6db74"> et vous avez </span>$age<span style="color:#e6db74"> ans.&#34;</span>
+</span></span><span style="display:flex;"><span>                        ;;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Fin du script&#34;</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: fonction/fonction_2.sh</strong></p>
+<hr>
+<h3 id="2--break--continue">2- Break / Continue</h3>
+<p>Lorsque vous créer une fonction avec plusieurs conditions, il existe deux commande très importante afin de contrôler les opérations conditionnelles au sein de la fonction.</p>
+<ul>
+<li><code>break</code>: permet de sortir d&rsquo;une boucle lorsqu&rsquo;une condition est vrai.</li>
+<li><code>continue</code>: permet de stopper la suite d&rsquo;une boucle en passant à la prochaine itération.</li>
+</ul>
+
+<div class="alert alert-danger" role="alert">
+    Ces deux options ne sont pas uniquement utilisable dans une fonction.
+</div>
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_1784d942ec">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_1784d942ec">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Définition de la fonction</span>
+</span></span><span style="display:flex;"><span>traiter_nombres<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local compteur<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>  <span style="color:#75715e"># Variable locale pour compter les nombres traités</span>
+</span></span><span style="display:flex;"><span>    local nombre
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Début du traitement des nombres...&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> nombre in <span style="color:#f92672">{</span>1..20<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>  <span style="color:#75715e"># Boucle de 1 à 20</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Condition pour &#39;break&#39; - sortie de boucle</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span> nombre &gt; <span style="color:#ae81ff">15</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;⚠️  Nombre supérieur à 15 détecté : </span>$nombre<span style="color:#e6db74"> - arrêt du traitement !&#34;</span>
+</span></span><span style="display:flex;"><span>            break
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Condition pour &#39;continue&#39; - sauter une itération</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span> nombre % 2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;↪️  Nombre pair ignoré : </span>$nombre<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Traitement du nombre impair</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;✅ Traitement du nombre impair : </span>$nombre<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">((</span>compteur++<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Total de nombres impairs traités : </span>$compteur<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Appel de la fonction</span>
+</span></span><span style="display:flex;"><span>traiter_nombres
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Script terminé !&#34;</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<p><strong>Exemple: fonction/fonction_3.sh</strong></p>
+<hr>
+<h3 id="3--exit--return">3- Exit / Return</h3>
+<p>Il faut comprendre que l&rsquo;exécution d&rsquo;un script correspond à exécuté une commande qui exécute plusiseurs commande jusqu&rsquo;à la fin du script.</p>
+<ul>
+<li>
+<p>Le script peut s&rsquo;arrété à cause de:</p>
+<ul>
+<li><code>D'une erreur</code></li>
+<li><code>Instruction d'arrêt forcé</code> (<strong>CTRL + C</strong> / <strong>CTRL + D</strong>)</li>
+<li><code>Il a terminé toute ses instructions</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="31--lexécution-dun-script">3.1- L&rsquo;exécution d&rsquo;un script</h4>
+<p><code>Que se passe-t-il quand on exécute un script ? </code></p>
+<p>Il faut s&rsquo;intéresser au processus d&rsquo;un système <code>GNU/Linux</code>.</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_378c9a918c">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_378c9a918c">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; env | grep sock          <span style="color:#75715e">#Cherche le PID de mon terminal</span>
+</span></span><span style="display:flex;"><span>ALACRITTY_SOCKET<span style="color:#f92672">=</span>/run/user/1000/Alacritty-:0-37331.sock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep alac       <span style="color:#75715e">#Cherche les processus alacritty ayant le bon PID</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>aecn       <span style="color:#ae81ff">37330</span>       <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span> mai13 ?        00:00:00 /bin/sh -c alacritty
+</span></span><span style="display:flex;"><span>aecn       <span style="color:#ae81ff">37331</span>   <span style="color:#ae81ff">37330</span>  <span style="color:#ae81ff">0</span> mai13 ?        00:00:42 alacritty
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; bash exec_1.sh           <span style="color:#75715e">#Exécute le script </span>
+</span></span><span style="display:flex;"><span>Exécution du script en cours
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>sleep 1000<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Fin du script
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep exec_1.sh  <span style="color:#75715e">#Cherche le PID associé à mon script</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>aecn      <span style="color:#ae81ff">103525</span>   <span style="color:#ae81ff">37345</span>  <span style="color:#ae81ff">0</span> 14:03 pts/5    00:00:00 bash exec_1.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep <span style="color:#ae81ff">37345</span>      <span style="color:#75715e"># Cherche qui est le processus parent ayant lancé mon script et son PID</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>aecn       <span style="color:#ae81ff">37345</span>   <span style="color:#ae81ff">37331</span>  <span style="color:#ae81ff">0</span> mai13 pts/5    00:00:00 /bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep <span style="color:#ae81ff">37331</span>      <span style="color:#75715e"># Cherche qui à lancé l&#39;interpréteur de commande via PPID</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>aecn       <span style="color:#ae81ff">37331</span>   <span style="color:#ae81ff">37330</span>  <span style="color:#ae81ff">0</span> mai13 ?        00:00:43 alacritty
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep <span style="color:#ae81ff">37330</span>      <span style="color:#75715e"># Cherche qui à lancer et comment mon terminal</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>aecn       <span style="color:#ae81ff">37330</span>       <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span> mai13 ?        00:00:00 /bin/sh -c alacritty
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -ef | grep <span style="color:#ae81ff">1</span>          <span style="color:#75715e"># Cherche qui est le tout premier processus de ma chaîne d&#39;exécution</span>
+</span></span><span style="display:flex;"><span>UID          PID    PPID  C STIME TTY          TIME CMD
+</span></span><span style="display:flex;"><span>root           <span style="color:#ae81ff">1</span>       <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span> mai12 ?        00:00:07 /sbin/init
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<ul>
+<li>BILAN</li>
+</ul>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_93a8c9a181">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_93a8c9a181">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1: /sbin/init
+</span></span><span style="display:flex;"><span>└────── 37330: /bin/sh -c alacritty
+</span></span><span style="display:flex;"><span>	    └──────	37331: alacritty
+</span></span><span style="display:flex;"><span>		        └──────	37345: /bin/bash
+</span></span><span style="display:flex;"><span>			            └──────	103820: /bin/bash ./exec_1.sh
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Lors du démarrage de mon système d&rsquo;exploitation l&rsquo;orchestateur de processus est lancé. C&rsquo;est un binaire exécuté par le noyau <strong>/sbin/init</strong>. Etant le tout prémier processus démarrant il prend le <strong>PID</strong> <code>1</code> (<strong>P</strong>rocessus <strong>ID</strong>entification)</p>
+<p>Une fois mon système démarré, l&rsquo;utilisateur lance son application de terminal console. N&rsquo;ayant pas encore l&rsquo;information de quel interpréteur de commande l&rsquo;utilisateur utilise le système va utilisé le shell par default des systèmes UNIX: <strong>/bin/sh</strong> (bsh) pour exécuté le binaire de l&rsquo;application de terminal. <code>/bin/sh -c alacritty</code></p>
+<p>Le binaire de l&rsquo;application <strong>alacritty</strong> est donc exécuté, il obtient donc son propre numéro de processus. Lors du démarrage de l&rsquo;application de terminal le binaire va lire les paramètres utilisateur dont le chemin du shell choissi. Ici /bin/bash est exécuté dans le terminal ce qui affiche l&rsquo;interpréteur de commande bash et démarre son propre processus.</p>
+<p>Une fois dans le terminal l&rsquo;utilisateur exécute son script shell qui possède un shebang précissant le type de code à exécuté. Etant un script shell bash avec <code>#!/bin/bash</code> une autre instance de bash va être lancé par bash avec son propre PID.</p>
+<p>Chaque étape dépent de la précédente et se raccorde toute entre elles grâce au PID qui leur son propre et les PPID qui est le procéssus auquel il est lié.</p>
+<h3 id="32--orchestrateur-de-processus-et-histoire">3.2- Orchestrateur de processus et histoire</h3>
+<p><code>Comment connaître son orchestrateur de processus ?</code></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_cea50c3baa">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_cea50c3baa">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$&gt; ps -p <span style="color:#ae81ff">1</span> -o comm<span style="color:#f92672">=</span>         <span style="color:#75715e"># Cherche quelle bianire est mon orchestrateur de processus</span>
+</span></span><span style="display:flex;"><span>systemd
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<hr>
+<h4 id="rôle-principal-du-processus-1-init">Rôle principal du processus 1 (init)</h4>
+<ol>
+<li>
+<p><strong>Initialisation du système</strong> :</p>
+<ul>
+<li>Il est responsable du démarrage des services système, des scripts d&rsquo;initialisation, et de la configuration de l&rsquo;environnement utilisateur.</li>
+<li>Il gère les niveaux d&rsquo;exécution (<em>runlevels</em> pour SysVinit) ou les cibles (<em>targets</em> pour systemd).</li>
+</ul>
+</li>
+<li>
+<p><strong>Parent de tous les processus</strong> :</p>
+<ul>
+<li>Tous les processus utilisateur descendent de PID 1. Si un processus devient orphelin, il est &ldquo;adopté&rdquo; par init.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gestion des arrêts et redémarrages</strong> :</p>
+<ul>
+<li>Il orchestre l&rsquo;arrêt propre du système (ex: <code>shutdown</code>, <code>reboot</code>).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="evolution-sous-debian">Evolution sous Debian</h4>
+<p>Debian a transitionné de <strong>SysVinit</strong> (système historique) à <strong>systemd</strong> (modern) depuis Debian 8 (Jessie, 2015). La binaire <code>/sbin/init</code> peut donc être associée à l&rsquo;un ou l&rsquo;autre selon la version.</p>
+<hr>
+<h5 id="1-cas-de-sysvinit-anciennes-versions-de-debian">1. Cas de SysVinit (anciennes versions de Debian)</h5>
+<ul>
+<li>
+<p><strong>Fonctionnement</strong> :</p>
+<ul>
+<li><code>/sbin/init</code> est le binaire SysVinit.</li>
+<li>Il lit le fichier <code>/etc/inittab</code> pour déterminer le <em>runlevel</em> par défaut (ex: 3 = mode multi-utilisateur, 5 = mode graphique).</li>
+<li>Exécute les scripts dans <code>/etc/rc.d/rcX.d/</code> (où <code>X</code> est le runlevel) pour démarrer/arrêter les services.</li>
+</ul>
+</li>
+<li>
+<p><strong>Structure des runlevels</strong> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Exemple de runlevel</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> → Arrêt
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> → Mode mono-utilisateur <span style="color:#f92672">(</span>maintenance<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> → Multi-utilisateur sans réseau
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> → Multi-utilisateur avec réseau <span style="color:#f92672">(</span>mode texte<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> → Mode graphique <span style="color:#f92672">(</span>Xorg<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> → Redémarrage
+</span></span></code></pre></div></li>
+</ul>
+<hr>
+<h5 id="2-cas-de-systemd-debian-moderne">2. Cas de systemd (Debian moderne)</h5>
+<ul>
+<li>
+<p><strong>Fonctionnement</strong> :</p>
+<ul>
+<li><code>/sbin/init</code> est un lien symbolique vers <code>systemd</code> (vérifier via <code>ls -l /sbin/init</code>).</li>
+<li>Systemd utilise des <strong>unités</strong> (fichiers <code>.service</code>, <code>.socket</code>, etc.) et des <strong>cibles</strong> (<em>targets</em>) pour gérer les dépendances et paralléliser le démarrage.</li>
+<li>Exemple de cibles :
+<ul>
+<li><code>multi-user.target</code> → Équivalent du runlevel 3.</li>
+<li><code>graphical.target</code> → Équivalent du runlevel 5.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Avantages de systemd</strong> :</p>
+<ul>
+<li>Démarrage plus rapide grâce au parallélisme.</li>
+<li>Journalisation centralisée avec <code>journalctl</code>.</li>
+<li>Gestion dynamique des services (activation à la demande).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="retour-sur-les-exit--return">Retour sur les exit / return</h4>
+<h3 id="3--exit--return-1">3- Exit / Return</h3>
+<p><strong>RAPPEL</strong></p>
+<p>Il faut comprendre que l&rsquo;exécution d&rsquo;un script correspond à exécuté une commande qui exécute plusiseurs commande jusqu&rsquo;à la fin du script.</p>
+<ul>
+<li>
+<p>Le script peut s&rsquo;arrété à cause de:</p>
+<ul>
+<li><code>D'une erreur</code></li>
+<li><code>Instruction d'arrêt forcé</code> (<strong>CTRL + C</strong> / <strong>CTRL + D</strong>)</li>
+<li><code>Il a terminé toute ses instructions</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_f180d41d42">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_f180d41d42">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>input<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1:?Entrez le nom d un paquet<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Vérifie si l&#39;utilisateur est root (retourne un code)</span>
+</span></span><span style="display:flex;"><span>check_root<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Vous êtes root.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Vous n&#39;êtes pas root.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Vérifie un package et quitte le script si absent</span>
+</span></span><span style="display:flex;"><span>check_package<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local package<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ! command -v <span style="color:#e6db74">&#34;</span>$package<span style="color:#e6db74">&#34;</span> &amp;&gt; /dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Erreur: </span>$package<span style="color:#e6db74"> est requis mais non installé.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;</span>$package<span style="color:#e6db74"> est installé.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Affiche un message en rouge</span>
+</span></span><span style="display:flex;"><span>error_message<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\033[31m</span>$msg<span style="color:#e6db74">\033[0m&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fonction principale</span>
+</span></span><span style="display:flex;"><span>main<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    check_root
+</span></span><span style="display:flex;"><span>    local is_root<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Avertissement si non-root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$is_root<span style="color:#e6db74">&#34;</span> -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        error_message <span style="color:#e6db74">&#34;Attention : Certaines fonctionnalités nécessitent root.&#34;</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Vérification critique de curl</span>
+</span></span><span style="display:flex;"><span>    check_package <span style="color:#e6db74">&#34;</span>$input<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    local is_installed<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$is_installed<span style="color:#e6db74">&#34;</span> -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Suite du script</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Téléchargement en cours...&#34;</span>
+</span></span><span style="display:flex;"><span>        apt install -y <span style="color:#e6db74">&#34;</span>$input<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># curl ... (exemple)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Démarrage du script</span>
+</span></span><span style="display:flex;"><span>main
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Les commandes <code>exit</code> et <code>return</code> permettent d&rsquo;intéragir avec le conportement du script de 2 manières différentes.</p>
+<ul>
+<li>
+<p><code>exit</code> permet d&rsquo;arrété le script en attribuant un code de fin d&rsquo;éxécution comme pour les commandes. Effectivement comme vu précédemment <code>/bin/bash</code> est une commande qui possède (ou pas) des paramêtres, des arguments et donc des entrés/sorties standards. <code>Exit</code> termine le processus en cours. Dans la norme un code retour de <code>bash</code> est <strong>0</strong> lorsque exécuté correctement et <strong>un autre chiffre</strong> en cas d&rsquo;exécution incorrect (à vous de définir vos codes d&rsquo;erreurs). <strong>1</strong> est quand à lui réservé à une mauvaise utilisation du script peu importe l&rsquo;erreur.</p>
+</li>
+<li>
+<p><code>return</code> permet de donner un état de fin d&rsquo;éxécution d&rsquo;une fonction. Cela équivaut à attribuer un code de fin d&rsquo;exécution à une fonction comme si s&rsquo;était une commande. Vous pouvez donnez n&rsquo;import quel valeur après un <code>return</code> mais souvent on l&rsquo;utilise de manière booléen dans une condition: <strong>0</strong> = <code>vrai</code> et <strong>1</strong> = <code>faux</code>.</p>
+</li>
+</ul>
+<h4 id="voir-les-traps">VOIR LES TRAPS</h4>
+<h3 id="les-codes-sans-erreurs">Les codes sans erreurs</h3>
+<h4 id="les-10-règles-de-la-nasa">Les 10 règles de la NASA</h4>
+<p>Bien évidemment, on ne code pas au même niveau que la NASA mais leurs règles sur la strucutration d&rsquo;un code est très intéressant et permette de tendre le plus possible vers code qui n&rsquo;a pas d&rsquo;erreur. Le but premier est d&rsquo;avoir un code qui s&rsquo;approche le plus d&rsquo;un 100% de fiabilité.</p>
+
+
+
+<a href="https://www.youtube.com/watch?v=wTZcGN4N334" class="btn btn-danger">
+    [YOUTUBE] Comment la NASA code sans bug @V2F
+</a>
+
+
+
+    
+
+
+                    
+                    <div class="row"><div class="position-relative mx-auto col-lg-9">
+                          <div class="bg-primary overflow-hidden p-3 mt-5 shadow">
+
+    <h4 class="text-white text-center">Read more</h4>
+
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/formation/shell_scripting/op%C3%A9ration_math/" title="Les opérations mathématiques"><i class="fas fa-chevron-left p-1"></i>Les opérations mathématiques</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/formation/shell_scripting/shell_scripting/" title="Un Shell et le Scripting">Un Shell et le Scripting<i class="fas fa-chevron-right p-1"></i></a>
+    </div>
+</div>
+
+
+                        </div></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="http://localhost:1313lib/jquery.min.js"></script> 
+<script src="http://localhost:1313lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/plugins/auto-complete.js"></script>
+<link href="/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313";
+  
+</script>
+<script type="text/javascript" src="/plugins/search.js"></script>
+
+<script type="text/javascript" src="/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>
