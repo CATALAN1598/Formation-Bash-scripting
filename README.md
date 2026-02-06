@@ -2,7 +2,10 @@
 
 ## Introduction
 
-Formation sur le Bash scripting. J'ai écrit cette formation pour apprendre à des jeunes administrateurs l'utilisation de scipt shel pour automatiser des tâches.
+Formation sur le Bash scripting. 
+
+J'ai écrit cette formation pour apprendre à des jeunes administrateurs l'utilisation de scipt shell pour automatiser des tâches.
+
 Je présente également les bonnes manières et les choses a éviter afin d'écrire des scripts pour de la production.
 
 Cette formation s'adresse à un publique débutant jusqu'a confirmé.
