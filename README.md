@@ -4,7 +4,7 @@
 
 Formation sur le Bash scripting. 
 
-J'ai écrit cette formation pour apprendre à des jeunes administrateurs l'utilisation de scipt shell pour automatiser des tâches.
+J'ai écrit cette formation pour apprendre à des jeunes administrateurs l'utilisation de script shell pour automatiser des tâches.
 
 Je présente également les bonnes manières et les choses a éviter afin d'écrire des scripts pour de la production.
 
@@ -23,16 +23,22 @@ Cette formation s'adresse à un publique débutant jusqu'a confirmé.
 
 ### La formation
 
-Le support de la formation est proposé au format site web hébergé dans un docker.
-
-- foramtion/site:
-  Contient les éléments du site web
-- formation/conf:
-  Contient le fichier de configuration du nginx qui sert le site web
-- Dockerfile
-  Permet de générer votre propre image du site de formation pour l'hébergé vous même
+Le support de la formation est proposé au format site web hébergé dans un Docker disponible à l'adresse suivante [Site de la formation](http://).
 
 #### Build votre propre image
+
+- foramtion/site:
+  
+  Contient les éléments du site web
+  
+- formation/conf:
+  
+  Contient le fichier de configuration du nginx qui sert le site web
+  
+- Dockerfile:
+  
+  Permet de générer votre propre image du site de formation pour l'hébergé vous même
+
 
 Vous devez avoir un accès internet et download l'image du docker nginx
 
