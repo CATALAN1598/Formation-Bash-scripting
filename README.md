@@ -4,11 +4,11 @@
 
 Formation sur le Bash scripting. 
 
-J'ai écrit cette formation pour apprendre à des jeunes administrateurs l'utilisation de script shell pour automatiser des tâches.
+J'ai écrit cette formation pour apprendre à de jeune administrateurs l'utilisation de scripts shell pour automatiser des tâches.
 
 Je présente également les bonnes manières et les choses a éviter afin d'écrire des scripts pour de la production.
 
-Cette formation s'adresse à un publique débutant jusqu'a confirmé.
+Cette formation s'adresse à un public débutant jusqu'a confirmé.
 
 ### Les chapitres de la formation
 
@@ -23,11 +23,11 @@ Cette formation s'adresse à un publique débutant jusqu'a confirmé.
 
 ### La formation
 
-Le support de la formation est proposé au format site web hébergé dans un Docker disponible à l'adresse suivante [Site de la formation](http://).
+Le support de la formation est proposé au format site web hébergé dans un Docker disponible à l'adresse suivante: [Site de la formation](http://).
 
-#### Build votre propre image
+#### Builder votre propre image
 
-- foramtion/site:
+- formation/site:
   
   Contient les éléments du site web
   
@@ -37,16 +37,16 @@ Le support de la formation est proposé au format site web hébergé dans un Doc
   
 - Dockerfile:
   
-  Permet de générer votre propre image du site de formation pour l'hébergé vous même
+  Permet de générer votre propre image du site de formation pour l'héberger vous même
 
 
-Vous devez avoir un accès internet et download l'image du docker nginx
+Vous devez avoir un accès internet et download l'image du docker Nginx
 
 ```
 $ docker build -t formation-site .
 ```
 
-#### Run votre image docker
+#### lancé votre conteneur docker
 
 Une fois l'image de la formation créée vous devez **run** un docker avec votre image nouvellement **build**
 
@@ -56,13 +56,13 @@ $ docker run --name formation -p 80:80 -d formation-site:latest
 
 #### Accès au site WEB
 
-Une fois le docker démarré vous accedez au site web à l'adresse:
+Une fois le docker démarré vous accédez au site web à l'adresse:
 
 http://localhost
 
 ### Les scripts
 
-Tout les scripts de la formation sont disponible dans le répertoire **script**
+Tous les scripts de la formation sont disponible dans le répertoire **script**
 ```
 script
     ├── Arguments
