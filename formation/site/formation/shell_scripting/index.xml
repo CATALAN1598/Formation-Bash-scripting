@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell Scripting on Centre de Formation</title>
-    <link>http://localhost:1313/formation/shell_scripting/</link>
+    <link>http://localhost/formation/shell_scripting/</link>
     <description>Recent content in Shell Scripting on Centre de Formation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 May 2025 17:08:53 +0200</lastBuildDate><atom:link href="http://localhost:1313/formation/shell_scripting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 May 2025 17:08:53 +0200</lastBuildDate><atom:link href="http://localhost/formation/shell_scripting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Un Shell et le Scripting</title>
-      <link>http://localhost:1313/formation/shell_scripting/shell_scripting/</link>
+      <link>http://localhost/formation/shell_scripting/shell_scripting/</link>
       <pubDate>Tue, 06 May 2025 09:21:13 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/shell_scripting/</guid>
+      <guid>http://localhost/formation/shell_scripting/shell_scripting/</guid>
       <description>Ce chapitre présente la notion de shell et le terme scripting Les Shell Qu’est ce qu’un shell ?
 Un peu d&amp;rsquo;histoire et de notion importante: Extrait wikipédia: Bourne shell Le Bourne shell ou bsh (ou encore simplement sh dans de nombreuses versions d&amp;rsquo;UNIX) est un shell Unix. C&amp;rsquo;est le shell par défaut de la version 7 d&amp;rsquo;Unix ; dans les versions antérieures d&amp;rsquo;UNIX, le nom sh désigne le Thompson shell, et dans certaines versions actuelles, il désigne le Korn shell.</description>
     </item>
     
     <item>
       <title>Les variables</title>
-      <link>http://localhost:1313/formation/shell_scripting/variables/</link>
+      <link>http://localhost/formation/shell_scripting/variables/</link>
       <pubDate>Tue, 06 May 2025 09:34:53 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/variables/</guid>
+      <guid>http://localhost/formation/shell_scripting/variables/</guid>
       <description>Ce chapitre présente la manipulation des variables dans des scripts shell Les variables Comme dans tous langage de programmation l’utilisation de variable permet de stocker des informations en mémoire afin de les appeler plus tard dans le programme.
 Une variable est créée dès qu’on lui associe une valeur sinon la variable est NULL.
 Elle peut être appelée tant qu&amp;rsquo;elle existe et quand elle est nécessaire.
@@ -31,20 +31,20 @@ N’oublions pas qu’un script est un enchaînement d’instructions donc on ne
     
     <item>
       <title>Les arguments</title>
-      <link>http://localhost:1313/formation/shell_scripting/argument_script/</link>
+      <link>http://localhost/formation/shell_scripting/argument_script/</link>
       <pubDate>Wed, 07 May 2025 15:50:28 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/argument_script/</guid>
+      <guid>http://localhost/formation/shell_scripting/argument_script/</guid>
       <description>Cette page présente l&amp;rsquo;utilisation des arguments d&amp;rsquo;un script Les arguments 1- Manipulé les arguments Les scripts peuvent intéragir avec des arguments lors de l&amp;rsquo;exécution.
 Copy #!/bin/bash # echo &amp;#34;Le nom argument du script est: $0&amp;#34; echo &amp;#34;Le premier argument du script est: $1&amp;#34; echo &amp;#34;Le second argument du script est: $2&amp;#34; echo &amp;#34;Le troisième argument du scirpt est: $3&amp;#34; echo &amp;#34;Le nombre d&amp;#39;argument du script est: $#&amp;#34; echo &amp;#34;L&amp;#39;ensemble des arguments du script sont: $@&amp;#34; Exemple: arguments/argument_1.</description>
     </item>
     
     <item>
       <title>Les opérations conditionnelles</title>
-      <link>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_conditionnelle/</link>
+      <link>http://localhost/formation/shell_scripting/op%C3%A9ration_conditionnelle/</link>
       <pubDate>Wed, 07 May 2025 23:10:03 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_conditionnelle/</guid>
+      <guid>http://localhost/formation/shell_scripting/op%C3%A9ration_conditionnelle/</guid>
       <description>Cette page présente les opérations conditionnelles en bash Les opérations conditionnelles Afin de réalisé des opérations algorithmiques, il est possible d&amp;rsquo;exécuté des opérations conditionnelles. Elles ont pour but d&amp;rsquo;effectuer des vérifications afin de manipuler des commandes ou des variables.
 Il en existe plusieurs:
 0- La commande test Avant de voir les différentes opérations conditionnelles il faut voir la commande test.
@@ -53,20 +53,20 @@ La commande test est déployé par défaut sur DEBIAN: man test</description>
     
     <item>
       <title>Les opérations mathématiques</title>
-      <link>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_math/</link>
+      <link>http://localhost/formation/shell_scripting/op%C3%A9ration_math/</link>
       <pubDate>Wed, 07 May 2025 20:32:57 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_math/</guid>
+      <guid>http://localhost/formation/shell_scripting/op%C3%A9ration_math/</guid>
       <description>Cette page présente l&amp;rsquo;utilisation des opérations mathématiques en BASH Les opérations mathématiques Les opérations mathématiques sont très utile en bash mais possèdes une syntaxe particulière. Les traitements d&amp;rsquo;un nombre peu être considérés de deux manières:
 Un nombre peu être un entier exemple: 23 Un nombre peu être une chaîne de caractère ASCII exemple: caractère 2 et caractère 3 pour 23 0- Syntaxe Les vérifications et les test éffectués sur une varible contenant un nombre peuvent être interprétés de plusieurs manières et ne pas répondre les mêmes codes retours ou les mêmes résultats.</description>
     </item>
     
     <item>
       <title>Les fonctions</title>
-      <link>http://localhost:1313/formation/shell_scripting/fonction/</link>
+      <link>http://localhost/formation/shell_scripting/fonction/</link>
       <pubDate>Wed, 14 May 2025 10:39:32 +0200</pubDate>
       
-      <guid>http://localhost:1313/formation/shell_scripting/fonction/</guid>
+      <guid>http://localhost/formation/shell_scripting/fonction/</guid>
       <description>Cette page présente l&amp;rsquo;utilisation et la manipulation des fonctions Les fonctions Les fonctions permettent l&amp;rsquo;optimisation du script en automatisant une/des tâche(s) répétitive(s). Elles permettent une meilleur structuration du code.
 0- Syntaxe 1- Les fonctions Une fonction est un enchaînement de commande que l&amp;rsquo;on peut appeler lorsque necéssaire. Elle permet d&amp;rsquo;être appelé plusieurs fois sans avoir à réécrire une séquence de commande exécuté plusieurs fois.
 Copy #!/bin/bash ma_fonction() { echo &amp;#34;Appel de la fonction: Le chiffre est supérieur ou égal à 5&amp;#34; } read -p &amp;#34;Entrez un chiffre entre 1 et 9: &amp;#34; chiffre # Vérification améliorée de l&amp;#39;input if [[ !</description>

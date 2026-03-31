@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/formation/shell_scripting/</loc>
+    <loc>http://localhost/formation/shell_scripting/</loc>
     <lastmod>2025-05-07T17:08:53+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/shell_scripting/</loc>
+    <loc>http://localhost/formation/shell_scripting/shell_scripting/</loc>
     <lastmod>2025-05-06T09:21:13+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/</loc>
+    <loc>http://localhost/formation/</loc>
     <lastmod>2025-05-06T09:19:04+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/variables/</loc>
+    <loc>http://localhost/formation/shell_scripting/variables/</loc>
     <lastmod>2025-05-06T09:34:53+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/argument_script/</loc>
+    <loc>http://localhost/formation/shell_scripting/argument_script/</loc>
     <lastmod>2025-05-07T15:50:28+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_conditionnelle/</loc>
+    <loc>http://localhost/formation/shell_scripting/op%C3%A9ration_conditionnelle/</loc>
     <lastmod>2025-05-07T23:10:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/op%C3%A9ration_math/</loc>
+    <loc>http://localhost/formation/shell_scripting/op%C3%A9ration_math/</loc>
     <lastmod>2025-05-07T20:32:57+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/formation/shell_scripting/fonction/</loc>
+    <loc>http://localhost/formation/shell_scripting/fonction/</loc>
     <lastmod>2025-05-14T10:39:32+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost/</loc>
     <lastmod>2025-05-14T10:39:32+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost/tags/</loc>
   </url>
 </urlset>
