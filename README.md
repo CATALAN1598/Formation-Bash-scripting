@@ -4,11 +4,11 @@
 
 Formation sur le Bash scripting. 
 
-J'ai écrit cette formation pour apprendre à de jeune administrateurs l'utilisation de scripts shell pour automatiser des tâches.
+J'ai écris cette formation pour apprendre à de jeune administrateur l'utilisation des scripts shell pour automatiser des tâches.
 
-Je présente également les bonnes manières et les choses a éviter afin d'écrire des scripts pour de la production.
+Je présente également les bonnes pratiques et les choses à éviter afin d'écrire des scripts pour des environnement de production.
 
-Cette formation s'adresse à un public débutant jusqu'a confirmé.
+Cette formation s'adresse à un public débutant jusqu'à confirmé.
 
 ### Les chapitres de la formation
 
@@ -19,13 +19,13 @@ Cette formation s'adresse à un public débutant jusqu'a confirmé.
 - Les opérations mathématiques
 - Les fonctions
 
-## Le dépots 
+## Le dépot
 
 ### La formation
 
 Le support de la formation est proposé au format site web hébergé dans un Docker disponible à l'adresse suivante: [Site de la formation](http://).
 
-#### Builder votre propre image
+#### Build votre propre image
 
 - formation/site:
   
@@ -46,7 +46,7 @@ Vous devez avoir un accès internet et download l'image du docker Nginx
 $ docker build -t formation-site .
 ```
 
-#### lancé votre conteneur docker
+#### Lancer votre conteneur docker
 
 Une fois l'image de la formation créée vous devez **run** un docker avec votre image nouvellement **build**
 
