@@ -27,15 +27,15 @@ Le support de la formation est proposé au format site web hébergé dans un Doc
 
 #### Build votre propre image
 
-- formation/site:
+- **formation/site**:
   
   Contient les éléments du site web
   
-- formation/conf:
+- **formation/conf**:
   
   Contient le fichier de configuration du nginx qui sert le site web
   
-- Dockerfile:
+- **Dockerfile**:
   
   Permet de générer votre propre image du site de formation pour l'héberger vous même
 
